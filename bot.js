@@ -389,6 +389,26 @@ client.on('message', msg => {
 }
 });
 
+
+client.on('message', message => {
+if (message.content.startsWith("Fct")) {
+    var args = message.content.split(" ").slice(1);
+    var argrst = args.join(' ');
+                message.guild.createChannel(`${argrst}`, 'text')
+      }
+});
+client.on('message', message => {
+if (message.content.startsWith("Fcv")) {
+    var args = message.content.split(" ").slice(1);
+    var argrst = args.join(' ');
+                message.guild.createChannel(`${argrst}`,'voice')
+          
+        }
+});
+
+
+
+
 client.login(process.env.BOT_TOKEN);
 
 
