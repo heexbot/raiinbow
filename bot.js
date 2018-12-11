@@ -463,8 +463,70 @@ client.on("ready", () => {
   }, 7200000)
   })
 
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('discord.gg')){
+        if(!message.channel.guild) return;
+        message.delete()
+    return message.reply(`** ممنوع الروابط بهذا السيرفر 😠 ! **`)
+    }
+});
+ 
+ 
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('youtube')){
+        if(!message.channel.guild) return;
+        message.delete()
+    return message.reply(`** ممنوع الروابط بهذا السيرفر 😠 ! **`)
+    }
+});
 
 
+
+client.on('message', message => {
+ 
+    if (message.content === "clroom") {
+                        if(!message.channel.guild) return message.reply(' This command only for servers');
+ 
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+ 
+           }).then(() => {
+               message.reply("تم تقفيل الشات :white_check_mark: ")
+           });
+             }
+ 
+if (message.content === ".oproom") {
+    if(!message.channel.guild) return message.reply(' This command only for servers');
+ 
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+ 
+           }).then(() => {
+               message.reply("تم فتح الشات:white_check_mark:")
+           });
+             }
+ 
+ 
+ 
+});
+
+
+
+antispam(client, {
+  warnBuffer: 3, //الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على تحذير.
+  maxBuffer: 5, // الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على ميوت.
+  interval: 1000, // مقدار الوقت قبل حصول باند
+  warningMessage: "*** بطل سبام ***", // رسالة تحذير اذا سوا سبام!
+  roleMessage: "***مبروك على الميوت ***", // الرسالة الي تجي اذا شخص اخذ ميوت
+  roleName: "Muted", // اسم رتبة الميوت
+  maxDuplicatesWarning: 7, // عدد الرسايل الي قبل التحذيرات
+  maxDuplicatesBan: 10, // عدد الرسايل الي يقدر المستخدم يرسلها قبل الميوت
+  time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية
+});
 
 client.login(process.env.BOT_TOKEN);
 
