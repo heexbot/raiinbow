@@ -303,10 +303,60 @@ client.on("message", (message) => {
 
 
 
-client.on('guildMemberAdd', msg => { var embed = new Discord.RichEmbed() .setAuthor(msg.user.username, msg.user.avatarURL) .setThumbnail(msg.user.avatarURL) .setImage('https://cdn.discordapp.com/attachments/513328942069841921/522029961767550976/LOGO.png') 
-	.setTitle('New Member!') .setDescription('Welcome To server') .addField('**ID Member:',"" + msg.user.id, true) .addField('**Tag Member**', msg.user.discriminator, true) .addField('**Member Created At', msg.user.createdAt, true) .addField(' 👤 You Number',`**[ ${msg.guild.memberCount} ]**`,true) .setColor('GREEN') .setFooter(msg.guild.name, msg.guild.iconURL, true) var channel = msg.guild.channels.find('name', 'public') if (!channel) return; channel.send({embed : embed}); });
+client.on('message', message => {
+if (message.content.startsWith("Fct")) {
+    var args = message.content.split(" ").slice(1);
+    var argrst = args.join(' ');
+                message.guild.createChannel(`${argrst}`, 'text')
+      }
+});
+client.on('message', message => {
+if (message.content.startsWith("Fcv")) {
+    var args = message.content.split(" ").slice(1);
+    var argrst = args.join(' ');
+                message.guild.createChannel(`${argrst}`,'voice')
+          
+        }
+});
+
+client.on('message', async message => {
+  if(message.content.startsWith("Fvoicesetup")) {
+  if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply(':x: **ليس لديك الصلاحيات الكافية**');
+  if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply(':x: **ليس معي الصلاحيات الكافية**');
+  var args = message.content.split(' ').slice(1).join(' ');
+  if(args && !args.includes(0)) return message.channel.send(':negative_squared_cross_mark: » فشل اعداد الروم الصوتي .. __يجب عليك كتابة 0 في اسم الروم__');
+  if(!args) args = `VoiceOnline: [ ${message.guild.members.filter(s => s.voiceChannel).size} ]`;
+  message.channel.send(':white_check_mark: » تم عمل الروم الصوتي بنجاح');
+  message.guild.createChannel(`${args.replace(0, message.guild.members.filter(s => s.voiceChannel).size)}`, 'voice').then(c => {
+    c.overwritePermissions(message.guild.id, {
+      CONNECT: false,
+      SPEAK: false
+    });
+    setInterval(() => {
+      c.setName(`${args.replace(0, message.guild.members.filter(s => s.voiceChannel).size)}`).catch(err => {
+        if(err) return;
+      });
+    },3000);
+  });
+  }
+});
 
 
+client.on("guildMemberAdd", member => {
+        if(member.guild.id === "497814052941332490") {  // ايدي السيرفر
+  const channel = member.guild.channels.find('id', '520956949437874187'); //ايدي الروم
+if (!channel) return;
+channel.send(`**<@${member.user.id}> Welcome To ~~FiveGroup~~  ** ❤️ `)  
+}});
+client.on("guildMemberRemove", member => {
+        if(member.guild.id === "497814052941332490") { 
+  const channel = member.guild.channels.find('id', '520956949437874187'); 
+if (!channel) return;
+  channel.send(`**${member.user.tag} Left The Server  ** 😭 `) 
+}});
+client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","FiveGroup")); //اسم ا��رتبة
+    });
 
 client.on('message', message => {
 
