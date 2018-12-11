@@ -432,6 +432,40 @@ client.on('message', async message => {
 
 
 
+
+
+client.on("message", message => {
+    var prefix = "$";
+ 
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "clear")) {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
+        var msg;
+        msg = parseInt();
+     
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "Done | تــم",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل بنجاح",
+        footer: {
+          text: "Name Bot."
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+ 
+     
+});
+client.on("ready", () => {
+  let channel =     client.channels.get("520956949437874187")
+  setInterval(function() {
+   channel.send(`Fclear`);
+  }, 7200000)
+  })
+
+
+
+
 client.login(process.env.BOT_TOKEN);
 
 
