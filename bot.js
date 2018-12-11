@@ -435,7 +435,7 @@ client.on('message', async message => {
 
 
 client.on("message", message => {
-    var prefix = "$";
+    var prefix = "F";
  
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "clear")) {
