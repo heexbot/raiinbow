@@ -441,12 +441,7 @@ client.on("message", message => {
  
      
 });
-client.on("ready", () => {
-  let channel =     client.channels.get("520956949437874187")
-  setInterval(function() {
-   channel.send(`Fclear`);
-  }, 7200000)
-  })
+
 
 client.on('message', message => {
     var args = message.content.split(/[ ]+/)
@@ -471,7 +466,7 @@ client.on('message', message => {
 
 client.on('message', message => {
  
-    if (message.content === "clroom") {
+    if (message.content === "Fclroom") {
                         if(!message.channel.guild) return message.reply(' This command only for servers');
  
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
@@ -483,7 +478,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' لي
            });
              }
  
-if (message.content === ".oproom") {
+if (message.content === "Foproom") {
     if(!message.channel.guild) return message.reply(' This command only for servers');
  
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
