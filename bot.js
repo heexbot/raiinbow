@@ -523,12 +523,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لي�
 });
 
 
-client.on("ready", () => { // كود رينبو
-  function lol() {
-    client.guilds.get('497814052941332490').roles.find("name", "R").setColor("RANDOM");
-  };
-  setInterval(lol, 1000);
-});
+
 
 
 client.login(process.env.BOT_TOKEN);
