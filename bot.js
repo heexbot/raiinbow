@@ -365,14 +365,7 @@ if (message.content.startsWith("Fban")) {
     message.channel.send("تم أعطاء باند الى : " + mention.tag);
 };
 });
-client.on('message', msg => {
-  if (msg.author.bot) return;
-  if (!msg.content.startsWith(prefix)) return;
-  let command = msg.content.split(" ")[0];
-  command = command.slice(prefix.length);
-  let args = msg.content.split(" ").slice(1);
 
-    
 
 
 client.on('message', message => {
