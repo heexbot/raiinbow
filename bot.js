@@ -29,7 +29,7 @@ var prefix = "w";
 var adminprefix = "F";
 
 
-const developers = ["323888904602124299"]
+const developers = ["323888904602124299","503547627346984960"]
 
 
 client.on('message', message => {
@@ -471,24 +471,6 @@ client.on("message", message => {
 });
 
 
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('discord.gg')){
-        if(!message.channel.guild) return;
-        message.delete()
-    return message.reply(`** ممنوع الروابط بهذا السيرفر 😠 ! **`)
-    }
-});
- 
- 
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('youtube')){
-        if(!message.channel.guild) return;
-        message.delete()
-    return message.reply(`** ممنوع الروابط بهذا السيرفر 😠 ! **`)
-    }
-});
 
 
 
