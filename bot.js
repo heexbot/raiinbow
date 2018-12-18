@@ -26,7 +26,7 @@ const client = new Discord.Client();
 var prefix = "w";
 
 
-var adminprefix = "F";
+var adminprefix = "G";
 
 
 const developers = ["323888904602124299","503547627346984960"]
@@ -132,7 +132,7 @@ if (message.content.startsWith(adminprefix + 'setava')) {
 client.on("message", message => {
 
 
-            if (message.content.startsWith("Fbc")) {
+            if (message.content.startsWith("Gbc")) {
 
         if(message.channel.type === 'dm') return message.reply('This Command Is Only For Server!');
 
@@ -163,7 +163,7 @@ client.on("message", message => {
 
   client.on('message', async message => {
 
-  if(message.content.startsWith( "رسالةF")) {
+  if(message.content.startsWith( "رسالةG")) {
 
     let i = client.users.size;
 
@@ -195,7 +195,7 @@ client.on("message", (message) => {
 
     /// DREAM
 
-   if (message.content.startsWith("Fnew")) { /// DREAM
+   if (message.content.startsWith("Gnew")) { /// DREAM
 
         const reason = message.content.split(" ").slice(1).join(" "); /// DREAM
 
@@ -369,7 +369,7 @@ if (message.content.startsWith("Fban")) {
 
 
 client.on("message", (message) => {
-    if (message.content.startsWith("Fcv")) {
+    if (message.content.startsWith("Gcv")) {
                 if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
             let args = message.content.split(" ").slice(1);
         message.guild.createChannel(args.join(' '), 'voice');
@@ -379,7 +379,7 @@ client.on("message", (message) => {
     });
 
 client.on('message', msg => {
-var prefix ="F"
+var prefix ="G"
             if(!msg.guild) return;
     if (msg.content.startsWith(prefix +'ct')) {
      let args = msg.content.split(" ").slice(1);
@@ -422,7 +422,7 @@ channelCreated = ra3deyad.createdAt
 });
 
 client.on('message', async message => {
-  if(message.content.startsWith("Fvoi")) {
+  if(message.content.startsWith("Gvoi")) {
   if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply(':x: **ليس لديك الصلاحيات الكافية**');
   if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply(':x: **ليس معي الصلاحيات الكافية**');
   var args = message.content.split(' ').slice(1).join(' ');
@@ -448,7 +448,7 @@ client.on('message', async message => {
 
 
 client.on("message", message => {
-    var prefix = "F";
+    var prefix = "G";
  
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "clear")) {
@@ -476,7 +476,7 @@ client.on("message", message => {
 
 client.on('message', message => {
  
-    if (message.content === "Fclroom") {
+    if (message.content === "Gclroom") {
                         if(!message.channel.guild) return message.reply(' This command only for servers');
  
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
@@ -488,7 +488,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' لي
            });
              }
  
-if (message.content === "Foproom") {
+if (message.content === "Goproom") {
     if(!message.channel.guild) return message.reply(' This command only for servers');
  
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
