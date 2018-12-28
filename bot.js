@@ -36,7 +36,7 @@ member.addRole(member.guild.roles.find('Members', 'not active'));
  
 client.on('message', message => {                      
     if(!message.channel.guild) return;
-       if(message.content.startsWith(prefix + 'active')) {
+       if(message.content.startsWith(prefix + 'active-ar')) {
         let modlog = client.channels.find('new', 'الـــــــــشات_العام');
        if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
        message.channel.sendMessage(`اضغط على الصح عشان تتفعل`).then(msg => {
@@ -72,10 +72,10 @@ member.addRole(member.guild.roles.find('name', 'not active'));
  
 client.on('message', message => {                      
     if(!message.channel.guild) return;
-       if(message.content.startsWith(prefix + 'active')) {
+       if(message.content.startsWith(prefix + 'active-En')) {
         let modlog = client.channels.find('new', 'الـــــــــشات_العام');
        if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-       message.channel.sendMessage(`اضغط على الصح عشان تتفعل`).then(msg => {
+       message.channel.sendMessage(`click ✅ to active  `).then(msg => {
        
        
         msg.react('✅')
