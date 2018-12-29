@@ -53,7 +53,7 @@ client.on('message', message => {
      
                                                        
                                active.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("Ar", "active"));
+                                   message.member.addRole(message.guild.roles.find("active", "Ar"));
                                    message.member.removeRole(message.guild.roles.find("Members", "not active"));
                                    msg.delete();
                                    message.channel.send(`**تم تفعيلك استمتع.**`).then(m => m.delete(1000));
