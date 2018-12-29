@@ -36,7 +36,7 @@ member.addRole(member.guild.roles.find('Members', 'not active'));
  
 client.on('message', message => {                      
     if(!message.channel.guild) return;
-       if(message.content.startsWith(prefix + 'active-ar')) {
+       if(message.content.startsWith(prefix + 'active-Ar')) {
         let modlog = client.channels.find('new', 'الـــــــــشات_العام');
        if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
        message.channel.sendMessage(`اضغط على الصح عشان تتفعل`).then(msg => {
