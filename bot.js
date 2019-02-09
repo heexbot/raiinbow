@@ -11,7 +11,7 @@ client.on("ready", () => {
         client.guilds.get("526497370578485258").roles.find("name", "Members").edit({
             color : "RANDOM"
         });
-    }, 10000)
+    }, 5000)
 });
 
 const adminprefix = "-";
